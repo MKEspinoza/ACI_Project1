@@ -2,7 +2,9 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
-
+    ofSetFrameRate(60);
+    ofSetRectMode(OF_RECTMODE_CENTER);
+    bubbleImage.loadImage("bubble_img.png");
 }
 
 //--------------------------------------------------------------
@@ -12,7 +14,9 @@ void ofApp::update(){
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-
+    ofBackground(ofColor::black);
+    Bubble b(bubbleImage);
+    b.draw();
 }
 
 //--------------------------------------------------------------
@@ -56,6 +60,6 @@ void ofApp::gotMessage(ofMessage msg){
 }
 
 //--------------------------------------------------------------
-void ofApp::dragEvent(ofDragInfo dragInfo){ 
+void ofApp::dragEvent(ofDragInfo dragInfo){
 
 }

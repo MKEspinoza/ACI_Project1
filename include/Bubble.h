@@ -3,31 +3,30 @@
 
 #include "ofMain.h"
 
-
 class Bubble
 {
     public:
         // Constructor
-        Bubble();
+        Bubble(ofImage& img);
 
-        //Observers
+        // Observers
         bool isOffScreen();
 
-        //Mutators
+        // Mutators
         void update();
 
-        //Call back
+        // Call back
         void draw();
 
-        //Event Listener
+        // Event Listener
         void onClick();
 
     private:
+        ofImage*    image;
         ofColor     color;
         int         id;
         ofVec2f     position;
         ofVec2f     velocity;
-
 };
 
 #endif // BUBBLE_H

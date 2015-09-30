@@ -1,8 +1,9 @@
 #include "Bubble.h"
 
-Bubble::Bubble()
-{
-
+// Constructor - only the image is specified.
+Bubble::Bubble(ofImage& img) {
+    image = &img;
+    position = ofVec2f(ofGetWidth()/2, ofGetHeight()/2);
 }
 
 bool Bubble::isOffScreen(){
@@ -14,7 +15,8 @@ void Bubble::update(){
 }
 
 //Call back
-void Bubble::draw(){
+void Bubble::draw() {
+    image->draw(position.x, position.y);
 }
 
 //Event Listener
