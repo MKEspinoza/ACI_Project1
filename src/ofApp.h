@@ -1,8 +1,11 @@
 #pragma once
 
 #include "ofMain.h"
+#include "Bubble.h"
+
 
 class ofApp : public ofBaseApp{
+
 
 	public:
 		void setup();
@@ -19,5 +22,6 @@ class ofApp : public ofBaseApp{
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
 
+        vector<Bubble> container;
 
 };
