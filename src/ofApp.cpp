@@ -5,18 +5,21 @@ void ofApp::setup(){
     ofSetFrameRate(60);
     ofSetRectMode(OF_RECTMODE_CENTER);
     bubbleImage.loadImage("bubble_img.png");
+
+    Bubble b(bubbleImage);
+    container.push_back(b);
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
+    container[0].update();
 
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
     ofBackground(ofColor::black);
-    Bubble b(bubbleImage);
-    b.draw();
+    container[0].draw();
 }
 
 //--------------------------------------------------------------

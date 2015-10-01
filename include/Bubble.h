@@ -27,6 +27,7 @@ class Bubble
         int         id;
         ofVec2f     position;
         ofVec2f     velocity;
+        float       acceleration;
 };
 
 #endif // BUBBLE_H

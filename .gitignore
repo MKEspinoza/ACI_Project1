@@ -2,3 +2,4 @@ obj/**
 bin/libs/*
 bin/ACI_Project1_debug
 .gitignore~
+Bubbles.layout
