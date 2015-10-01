@@ -5,8 +5,11 @@ void ofApp::setup(){
     ofSetFrameRate(60);
     ofSetRectMode(OF_RECTMODE_CENTER);
     bubbleImage.loadImage("bubble_img.png");
+    popSound.loadSound("pop_sound.mp3");
+    popSound.setMultiPlay(true);
 
-    Bubble b(bubbleImage);
+
+    Bubble b(bubbleImage,popSound);
     container.push_back(b);
 }
 
@@ -44,7 +47,7 @@ void ofApp::mouseDragged(int x, int y, int button){
 
 //--------------------------------------------------------------
 void ofApp::mousePressed(int x, int y, int button){
-
+    container[0].onClick(x,y);
 }
 
 //--------------------------------------------------------------

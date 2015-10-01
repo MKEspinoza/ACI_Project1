@@ -22,6 +22,7 @@ class ofApp : public ofBaseApp{
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
 
-        ofImage bubbleImage;
-        vector<Bubble> container;
+        ofImage         bubbleImage;
+        ofSoundPlayer   popSound;
+        vector<Bubble>  container;
 };
