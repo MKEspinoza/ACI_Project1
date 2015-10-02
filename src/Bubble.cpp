@@ -5,13 +5,20 @@ Bubble::Bubble(ofImage& img, ofSoundPlayer& sd) {
     image = &img;
     pop_sd = &sd;
     position = ofVec2f(ofGetWidth()/2, ofGetHeight()/2);
-    velocity = ofVec2f(ofRandom(-5,5),ofRandom(-5,5));
+    velocity = ofVec2f(ofRandom(-8,8),ofRandom(-8,8));
 
 
 }
 
 bool Bubble::isOffScreen(){
-    return false;
+    int radius = position.x/2;
+    int leftmost = position.x - radius;
+    int rightmost = position.x + radius;
+    int uppermost = position.y - radius;
+    int bottommost = position.y + radius;
+
+    return (uppermost > ofGetHeight() || bottommost < 0 || rightmost < 0 || leftmost > ofGetWidth() );
+
 }
 
 //Mutators
@@ -30,10 +37,12 @@ void Bubble::draw() {
 }
 
 //Event Listener
-void Bubble::onClick(int x, int y){
+bool Bubble::onClick(int x, int y){
     float radius = image->getHeight()/2;
     float current_dist = ofDist(x,y,position.x, position.y);
     if ( current_dist <= radius ){
         pop_sd->play();
+        return true;
     }
+    return false;
 }

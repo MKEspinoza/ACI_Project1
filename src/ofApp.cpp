@@ -8,21 +8,31 @@ void ofApp::setup(){
     popSound.loadSound("pop_sound.mp3");
     popSound.setMultiPlay(true);
 
-
-    Bubble b(bubbleImage,popSound);
-    container.push_back(b);
+    int number_ofBubbles = 10;
+    for (int i = 0; i < number_ofBubbles; i++){
+        Bubble b(bubbleImage,popSound);
+        container.push_back(b);
+    }
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
-    container[0].update();
+    for (int i = 0; i < container.size(); ++i){
+        container[i].update();
+        if (container[i].isOffScreen()){
+            container.erase (container.begin()+i);
+        }
+
+    }
 
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
     ofBackground(ofColor::black);
-    container[0].draw();
+    for (int i = 0; i < container.size(); ++i){
+       container[i].draw();
+    }
 }
 
 //--------------------------------------------------------------
@@ -47,7 +57,11 @@ void ofApp::mouseDragged(int x, int y, int button){
 
 //--------------------------------------------------------------
 void ofApp::mousePressed(int x, int y, int button){
-    container[0].onClick(x,y);
+    for (int i = 0; i < container.size(); i++){
+        if (container[i].onClick(x,y)){
+            container.erase (container.begin()+i);
+        }
+    }
 }
 
 //--------------------------------------------------------------

@@ -19,7 +19,7 @@ class Bubble
         void draw();
 
         // Event Listener
-        void onClick(int x, int y);
+        bool onClick(int x, int y);
 
     private:
         ofImage*        image;
