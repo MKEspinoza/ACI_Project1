@@ -33,6 +33,7 @@ void Bubble::update(){
 
 //Call back
 void Bubble::draw() {
+    ofSetColor(ofColor::tomato);
     image->draw(position.x, position.y);
 }
 
