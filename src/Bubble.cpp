@@ -6,19 +6,20 @@ Bubble::Bubble(ofImage& img, ofSoundPlayer& sd) {
     pop_sd = &sd;
     position = ofVec2f(ofGetWidth()/2, ofGetHeight()/2);
     velocity = ofVec2f(ofRandom(-8,8),ofRandom(-8,8));
-
+    color.r = ofRandom( 0, 255 );
+    color.g = ofRandom( 0, 255 );
+    color.b = ofRandom( 0, 255 );
 
 }
 
 bool Bubble::isOffScreen(){
-    int radius = position.x/2;
+    int radius = image->getHeight()/2;
     int leftmost = position.x - radius;
     int rightmost = position.x + radius;
     int uppermost = position.y - radius;
     int bottommost = position.y + radius;
 
-    return (uppermost > ofGetHeight() || bottommost < 0 || rightmost < 0 || leftmost > ofGetWidth() );
-
+    return (uppermost > ofGetHeight()) || (bottommost < 0 ) || (leftmost > ofGetWidth() || (rightmost < 0));
 }
 
 //Mutators
@@ -33,7 +34,7 @@ void Bubble::update(){
 
 //Call back
 void Bubble::draw() {
-    ofSetColor(ofColor::tomato);
+    ofSetColor( color );
     image->draw(position.x, position.y);
 }
 
