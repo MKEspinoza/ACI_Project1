@@ -31,6 +31,7 @@ class Bubble
         ofVec2f         velocity;
         float           acceleration;
         float           img_ratio;
+        float           speed_sd;
 };
 
 #endif // BUBBLE_H

@@ -10,7 +10,7 @@ void ofApp::setup(){
     ofEnableAlphaBlending();
     ofBackground(ofColor::black);
 
-    int number_ofBubbles = 5;
+    int number_ofBubbles = 10;
     for (int i = 0; i < number_ofBubbles; i++){
         Bubble b(bubbleImage,popSound);
         container.push_back(b);

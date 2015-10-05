@@ -11,6 +11,8 @@ Bubble::Bubble(ofImage  img, ofSoundPlayer sd) {
     color.r = ofRandom( 0, 255 );
     color.g = ofRandom( 0, 255 );
     color.b = ofRandom( 0, 255 );
+    speed_sd = float(color.getHex() ) / ((0xffffff) / 2) ;
+    std::cout << speed_sd << std::endl;
 
 }
 
@@ -50,6 +52,7 @@ bool Bubble::onClick(int x, int y){
     float current_dist = ofDist(x,y,position.x, position.y);
     if ( current_dist <= radius ){
         pop_sd.play();
+        pop_sd.setSpeed(speed_sd);
         pop_sd.setVolume(img_ratio);
         return true;
     }
