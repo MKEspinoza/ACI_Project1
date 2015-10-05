@@ -7,10 +7,11 @@ class Bubble
 {
     public:
         // Constructor
-        Bubble(ofImage& img, ofSoundPlayer& sd);
+        Bubble(ofImage  img, ofSoundPlayer& sd);
 
         // Observers
         bool isOffScreen();
+        ofColor getColor();
 
         // Mutators
         void update();
@@ -22,13 +23,14 @@ class Bubble
         bool onClick(int x, int y);
 
     private:
-        ofImage*        image;
+        ofImage         image;
         ofSoundPlayer*  pop_sd;
         ofColor         color;
         int             id;
         ofVec2f         position;
         ofVec2f         velocity;
         float           acceleration;
+        float           img_ratio;
 };
 
 #endif // BUBBLE_H

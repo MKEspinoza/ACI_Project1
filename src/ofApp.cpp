@@ -7,6 +7,8 @@ void ofApp::setup(){
     bubbleImage.loadImage("bubble_img.png");
     popSound.loadSound("pop_sound.mp3");
     popSound.setMultiPlay(true);
+    ofEnableAlphaBlending();
+    ofBackground(ofColor::black);
 
     int number_ofBubbles = 10;
     for (int i = 0; i < number_ofBubbles; i++){
@@ -29,9 +31,8 @@ void ofApp::update(){
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-    ofBackground(ofColor::black);
     for (int i = 0; i < container.size(); ++i){
-       container[i].draw();
+        container[i].draw();
     }
 }
 
