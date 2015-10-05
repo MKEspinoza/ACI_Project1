@@ -7,7 +7,7 @@ class Bubble
 {
     public:
         // Constructor
-        Bubble(ofImage  img, ofSoundPlayer& sd);
+        Bubble(ofImage  img, ofSoundPlayer sd);
 
         // Observers
         bool isOffScreen();
@@ -24,7 +24,7 @@ class Bubble
 
     private:
         ofImage         image;
-        ofSoundPlayer*  pop_sd;
+        ofSoundPlayer   pop_sd;
         ofColor         color;
         int             id;
         ofVec2f         position;

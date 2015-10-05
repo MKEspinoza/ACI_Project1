@@ -1,9 +1,9 @@
 #include "Bubble.h"
 
 // Constructor - only the image is specified.
-Bubble::Bubble(ofImage  img, ofSoundPlayer& sd) {
+Bubble::Bubble(ofImage  img, ofSoundPlayer sd) {
     image = img;
-    pop_sd = &sd;
+    pop_sd = sd;
     img_ratio = ofRandom(0.2,1.0);
     image.resize(image.getHeight() * img_ratio, image.getWidth() * img_ratio );
     position = ofVec2f(ofGetWidth()/2, ofGetHeight()/2);
@@ -49,7 +49,8 @@ bool Bubble::onClick(int x, int y){
     float radius = image.getHeight()/2;
     float current_dist = ofDist(x,y,position.x, position.y);
     if ( current_dist <= radius ){
-        pop_sd->play();
+        pop_sd.play();
+        pop_sd.setVolume(img_ratio);
         return true;
     }
     return false;
